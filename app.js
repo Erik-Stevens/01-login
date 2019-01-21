@@ -60,7 +60,7 @@ var sess = {
 };
 
 if (app.get('env') === 'production') {
-  sess.cookie.secure = true; // serve secure cookies, requires https
+  sess.cookie.secure = false; // serve secure cookies, requires https
 }
 
 app.use(session(sess));
