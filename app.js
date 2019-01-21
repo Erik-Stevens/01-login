@@ -3,7 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-
+var dotenv = require('dotenv');
 var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
 var flash = require('connect-flash');
@@ -12,12 +12,7 @@ var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-if (app.get('env') != 'production') {
-
-  var dotenv = require('dotenv');
-  dotenv.load();
-  
-}
+dotenv.load();
 
 // Configure Passport to use Auth0
 var strategy = new Auth0Strategy(
